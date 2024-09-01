@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+
+<fx:root  fx:id="ShredderHintComponent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: grey;" type="Pane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="shredderLabel" layoutX="42.0" layoutY="28.0" text="shredder" />
+      <Button layoutX="334.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleOpenShredderClick" text="Button" />
+   </children>
+</fx:root>

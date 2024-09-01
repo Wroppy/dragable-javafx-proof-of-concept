@@ -28,7 +28,7 @@ public class MusicPlayerController {
   private void handleToCounter(ActionEvent e) {
     Scene scene = ((Button) e.getSource()).getScene();
     try {
-      scene.setRoot(App.loadFXML("counter"));
+      scene.setRoot(App.loadFXML("counter").load());
       this.stopMusic();
 
     } catch (IOException exception) {

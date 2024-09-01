@@ -49,7 +49,7 @@ public class CounterController {
     Scene currentScene = ((Button) e.getSource()).getScene();
 
     try {
-      currentScene.setRoot(App.loadFXML("musicplayer"));
+      currentScene.setRoot(App.loadFXML("musicplayer").load());
     } catch (IOException exception) {
       exception.printStackTrace();
     }

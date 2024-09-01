@@ -14,14 +14,15 @@ public class App extends Application {
     launch();
   }
 
-  public static Parent loadFXML(String fxml) throws IOException {
+  public static FXMLLoader loadFXML(String fxml) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml"));
-    return fxmlLoader.load();
+    return fxmlLoader;
   }
 
   @Override
   public void start(Stage stage) throws IOException {
-    scene = new Scene(loadFXML("counter"), 640, 480);
+    FXMLLoader fxmlLoader = loadFXML("menu");
+    scene = new Scene(fxmlLoader.load(), 640, 480);
     stage.setScene(scene);
     stage.show();
   }
