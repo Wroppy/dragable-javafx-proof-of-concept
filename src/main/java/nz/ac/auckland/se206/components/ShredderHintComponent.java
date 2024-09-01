@@ -36,8 +36,8 @@ public class ShredderHintComponent extends Pane {
 
       this.setVisible(false);
 
-      // this.setLayoutX(125);
-      // this.setLayoutY(50);
+      this.setLayoutX(125);
+      this.setLayoutY(50);
 
       paper = new Draggable(rect, this);
 
