@@ -2,8 +2,11 @@ package nz.ac.auckland.se206.components;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.draggable.Draggable;
 
 import java.io.IOException;
 
@@ -13,6 +16,10 @@ import javafx.fxml.FXMLLoader;
 public class ShredderHintComponent extends Pane {
   @FXML
   private Label shredderLabel;
+  @FXML
+  private Rectangle rect;
+
+  Draggable paper;
 
   public ShredderHintComponent() {
     this.setId("ShredderHintComponent");
@@ -29,8 +36,10 @@ public class ShredderHintComponent extends Pane {
 
       this.setVisible(false);
 
-      this.setLayoutX(125);
-      this.setLayoutY(50);
+      // this.setLayoutX(125);
+      // this.setLayoutY(50);
+
+      paper = new Draggable(rect, this);
 
     } catch (IOException exception) {
       throw new RuntimeException(exception);
@@ -45,4 +54,5 @@ public class ShredderHintComponent extends Pane {
   private void handleOpenShredderClick() {
     this.toggleVisibility();
   }
+
 }
