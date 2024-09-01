@@ -9,14 +9,12 @@ public class Draggable {
 
   public Draggable(Node node, Node parent) {
     node.setOnMousePressed(e -> {
-      mouseAnchorX = e.getX();
-      mouseAnchorY = e.getY();
+      mouseAnchorX = e.getSceneX() - node.getLayoutX();
+      mouseAnchorY = e.getSceneY() - node.getLayoutY();
+
     });
 
     node.setOnMouseDragged(e -> {
-      System.out.println(e.getSceneX() + " " + e.getSceneY());
-      System.out.println(mouseAnchorX + " " + mouseAnchorY);
-
       // Checks that the node is not dragged out of the parent
       if (e.getSceneX() - mouseAnchorX < 0) {
         return;

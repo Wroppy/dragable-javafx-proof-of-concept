@@ -2,7 +2,8 @@ package nz.ac.auckland.se206.components;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.App;
@@ -16,8 +17,6 @@ import javafx.fxml.FXMLLoader;
 public class ShredderHintComponent extends Pane {
   @FXML
   private Label shredderLabel;
-  @FXML
-  private Rectangle rect;
 
   Draggable paper;
 
@@ -36,10 +35,11 @@ public class ShredderHintComponent extends Pane {
 
       this.setVisible(false);
 
+      // Centers
       this.setLayoutX(125);
       this.setLayoutY(50);
 
-      paper = new Draggable(rect, this);
+      this.createPapers();
 
     } catch (IOException exception) {
       throw new RuntimeException(exception);
@@ -53,6 +53,27 @@ public class ShredderHintComponent extends Pane {
   @FXML
   private void handleOpenShredderClick() {
     this.toggleVisibility();
+  }
+
+  private void createPapers() {
+    for (int i = 1; i <= 6; i++) {
+      Image paper = new Image(App.class.getResource("/images/paper_" + i + ".jpg").toExternalForm());
+      ImageView paperView = new ImageView(paper);
+      paperView.setFitWidth(27);
+      paperView.setFitHeight(225);
+
+      // Sets them to random positions within the parent  
+      paperView.setLayoutX(Math.random() * (400 - 27));
+      paperView.setLayoutY(Math.random() * (400 - 225));
+
+
+
+      // Set the draggable
+      new Draggable(paperView, this);
+
+      this.getChildren().add(paperView);
+
+    }
   }
 
 }
