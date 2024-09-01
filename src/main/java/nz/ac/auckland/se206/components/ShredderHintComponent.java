@@ -59,12 +59,14 @@ public class ShredderHintComponent extends Pane {
     for (int i = 1; i <= 6; i++) {
       Image paper = new Image(App.class.getResource("/images/paper_" + i + ".jpg").toExternalForm());
       ImageView paperView = new ImageView(paper);
-      paperView.setFitWidth(27);
-      paperView.setFitHeight(225);
+      double width = 40;
+      double height = width * 100 / 12; // Aspect ratio of the paper
+      paperView.setFitWidth(width);
+      paperView.setFitHeight(height);
 
       // Sets them to random positions within the parent  
-      paperView.setLayoutX(Math.random() * (400 - 27));
-      paperView.setLayoutY(Math.random() * (400 - 225));
+      paperView.setLayoutX(Math.random() * (400 - width));
+      paperView.setLayoutY(Math.random() * (400 - height));
 
 
 
