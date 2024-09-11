@@ -31,4 +31,25 @@ public class PaperView extends ImageView {
     this.order = order;
   }
 
+  public int isOrderGreaterThan(PaperView other) {
+    return this.order > other.order ? 1 : -1;
+  }
+
+  public int isXPositionAfter(PaperView other) {
+    return this.getLayoutX() > other.getLayoutX() ? 1 : -1;
+  }
+
+  public boolean isHeightDifferenceAcceptable(PaperView other) {
+    double y = this.getLayoutY();
+    double otherY = other.getLayoutY();
+
+    double acceptableRange = this.getFitHeight() / 10;
+
+    return Math.abs(y - otherY) < acceptableRange;
+  }
+
+  public int getOrder() {
+    return order;
+  }
+
 }

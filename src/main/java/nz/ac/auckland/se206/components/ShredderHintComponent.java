@@ -65,7 +65,45 @@ public class ShredderHintComponent extends Pane {
 
       this.getChildren().add(paperView);
       this.paperViews.add(paperView);
-      
+
     }
+  }
+
+  private void sortPapersByXPosition() {
+    this.paperViews.sort(
+        (a, b) -> a.isXPositionAfter(b));
+
+    for (int i = 0; i < paperViews.size(); i++) {
+      System.out.println(paperViews.get(i).getOrder());
+    }
+  }
+
+  private boolean arePapersInOrder() {
+    for (int i = 0; i < paperViews.size() - 1; i++) {
+      if (paperViews.get(i).getOrder() > paperViews.get(i + 1).getOrder()) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  private boolean arePapersAcceptableHeight() {
+    for (int i = 0; i < paperViews.size() - 1; i++) {
+      if (!(paperViews.get(i).isHeightDifferenceAcceptable(paperViews.get(i + 1)))) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  @FXML
+  public Void compareButtonClicked() {
+    sortPapersByXPosition();
+
+    System.out.println("In order " + this.arePapersInOrder());
+    System.out.println("Acceptable height " + this.arePapersAcceptableHeight());
+    return null;
   }
 }

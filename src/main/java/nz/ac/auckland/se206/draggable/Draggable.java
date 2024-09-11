@@ -16,28 +16,26 @@ public class Draggable {
 
     node.setOnMouseDragged(e -> {
       // Checks that the node is not dragged out of the parent
-      if (e.getSceneX() - mouseAnchorX < 0) {
-        return;
-      }
+      // if (e.getSceneX() - mouseAnchorX < 0) {
+        // return;
+      // }
       // Checks that the node is not dragged out of the parent
-
-      if (e.getSceneX() - mouseAnchorX > parent.getLayoutBounds().getWidth() - node.getLayoutBounds().getWidth()) {
-        return;
-      }
-
-      if (e.getSceneY() - mouseAnchorY < 0) {
-        return;
-      }
-
-      if (e.getSceneY() - mouseAnchorY > parent.getLayoutBounds().getHeight() - node.getLayoutBounds().getHeight()) {
-        return;
-      }
-
+// 
+      // if (e.getSceneX() - mouseAnchorX > parent.getLayoutBounds().getWidth() - node.getLayoutBounds().getWidth()) {
+        // return;
+      // }
+// 
+      // if (e.getSceneY() - mouseAnchorY < 0) {
+        // return;
+      // }
+// 
+      // if (e.getSceneY() - mouseAnchorY > parent.getLayoutBounds().getHeight() - node.getLayoutBounds().getHeight()) {
+        // return;
+      // }
       node.setLayoutX(e.getSceneX() - mouseAnchorX);
       node.setLayoutY(e.getSceneY() - mouseAnchorY);
 
     });
-
   }
 
 }

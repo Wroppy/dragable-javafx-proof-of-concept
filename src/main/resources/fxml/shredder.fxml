@@ -8,5 +8,6 @@
    <children>
       <Label fx:id="shredderLabel" layoutX="42.0" layoutY="28.0" text="shredder" />
       <Button layoutX="334.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleOpenShredderClick" text="Button" />
+      <Button layoutX="327.0" layoutY="60.0" mnemonicParsing="false" onAction="#compareButtonClicked" text="Compare" />
    </children>
 </fx:root>
