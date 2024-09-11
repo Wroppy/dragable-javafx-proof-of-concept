@@ -10,6 +10,8 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.draggable.Draggable;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,9 +20,10 @@ public class ShredderHintComponent extends Pane {
   @FXML
   private Label shredderLabel;
 
-  Draggable paper;
+  private List<PaperView> paperViews;
 
   public ShredderHintComponent() {
+    this.paperViews = new ArrayList<>();
     this.setId("ShredderHintComponent");
 
     try {
@@ -57,25 +60,12 @@ public class ShredderHintComponent extends Pane {
 
   private void createPapers() {
     for (int i = 1; i <= 6; i++) {
-      Image paper = new Image(App.class.getResource("/images/paper_" + i + ".jpg").toExternalForm());
-      ImageView paperView = new ImageView(paper);
-      double width = 40;
-      double height = width * 100 / 12; // Aspect ratio of the paper
-      paperView.setFitWidth(width);
-      paperView.setFitHeight(height);
-
-      // Sets them to random positions within the parent  
-      paperView.setLayoutX(Math.random() * (400 - width));
-      paperView.setLayoutY(Math.random() * (400 - height));
-
-
-
-      // Set the draggable
-      new Draggable(paperView, this);
+      PaperView paperView;
+      paperView = new PaperView(this, "paper_" + i, i);
 
       this.getChildren().add(paperView);
-
+      this.paperViews.add(paperView);
+      
     }
   }
-
 }
